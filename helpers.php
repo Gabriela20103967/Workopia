@@ -62,8 +62,9 @@ function inspect ($value) {
  *@param mixed $value
  *@return void
  */
-function inspectAndDie ($value) {
-    echo '<pre>';
-    die(var_dump($value));
+function inspectAndDie($value){
+    echo'<pre>';
+    var_dump($value);
     echo '</pre>';
+    die();
 }
