@@ -1,4 +1,5 @@
 <?php
+use Framework\Router;
 $router = new Router();
 
 $router->get('/', 'controllers/home.php');
