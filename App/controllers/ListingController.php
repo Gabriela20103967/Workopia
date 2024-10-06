@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Framework\Database;
+use Framework\Validation;
 
 class ListingController{
     protected $db;
@@ -26,6 +27,12 @@ class ListingController{
             'listings' => $listings
         ]);
     }
+
+    /**
+     * Show the create listing form
+     *
+     * @return void
+     */
 
     public function create() {
         loadView('listings/create');
