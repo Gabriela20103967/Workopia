@@ -19,8 +19,7 @@
                     name="title"
                     placeholder="Job Title"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing['title'] ?? '' ?>"
-                />
+                    value="<?= $listing['title'] ?? '' ?>" />
             </div>
             <div class="mb-4">
             <textarea
