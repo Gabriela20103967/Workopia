@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Middleware;
+namespace Framework\middleware;
 
 use Framework\Session;
 

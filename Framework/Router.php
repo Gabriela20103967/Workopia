@@ -3,11 +3,10 @@
 namespace Framework;
 
 use App\Controllers\ErrorController;
-use Framework\Middleware\Authorize;
+use Framework\middleware\Authorize;
 
 class Router {
     protected $routes = [];
-
 
     /**
      * Add a new route
@@ -36,8 +35,7 @@ class Router {
      *
      *@param string $uri
      *@param string $controller
-     * @param array $middleware
-     *
+     *@param array $middleware
      *@return void
      */
     public function get($uri, $controller, $middleware = []){
@@ -129,8 +127,8 @@ class Router {
                 }
 
                 if($match) {
-                    foreach($route['middleware'] as $middleware){
-                        (new Authorize()) ->handle($middleware);
+                    foreach ($route['middleware'] as $middleware){
+                        (new Authorize())->handle($middleware);
                     }
 
                     $controller = 'App\\Controllers\\' . $route['controller'];
