@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
 use Framework\Database;
 use Framework\Validation;
 use Framework\Session;
+use Framework\Authorization;
 
 class ListingController{
     protected $db;
@@ -149,8 +150,9 @@ class ListingController{
         }
 
         //Authorization
-        if(Session::get('user')['id'] !== $listing->user_id) {
-
+        if (!Authorization::isOwner($listing->user_id)) {
+            $_SESSION['error_message'] = 'You are not allowed to delete this listing';
+            return redirect('/listings/' . $listing->id);
         }
 
         $this->db->query('DELETE FROM listings WHERE id = :id', $params);
